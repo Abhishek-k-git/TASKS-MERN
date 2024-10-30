@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useTaskForm = (initialState, task) => {
+const useForm = (initialState, task) => {
    const [formData, setFormData] = useState(initialState);
 
    useEffect(() => {
@@ -8,7 +8,6 @@ const useTaskForm = (initialState, task) => {
          setFormData({
             title: task.title,
             description: task.description,
-            setDate: task.setDate.slice(0, 10),
             startTime: task.startTime,
             endTime: task.endTime,
             priority: task.priority,
@@ -26,4 +25,4 @@ const useTaskForm = (initialState, task) => {
    return [formData, handleChange];
 };
 
-export default useTaskForm;
+export default useForm;

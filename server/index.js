@@ -16,7 +16,7 @@ connectDB();
 app.use(
    cors({
       origin: ["http://localhost:5173", "https://tasks-mern-app.netlify.app"],
-      methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
    })
 );
 app.use(express.json());
