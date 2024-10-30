@@ -15,7 +15,7 @@ connectDB();
 // Middleware
 app.use(
    cors({
-      origin: ["http://localhost:5173/", "https://tasks-mern-app.netlify.app/"],
+      origin: ["http://localhost:5173", "https://tasks-mern-app.netlify.app"],
       methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
    })
 );
