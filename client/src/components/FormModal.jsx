@@ -33,13 +33,13 @@ const SelectField = ({ label, name, defaultOpt, value, onChange, options, requir
 );
 
 const FormModal = ({ isOpen, onClose, onSubmit, task }) => {
+
    const initialState = {
-      title: task ? task.title : "",
-      description: task ? task.description : "",
-      startTime: task ? task.startTime : "",
-      endTime: task ? task.endTime : "",
-      priority: task ? task.priority : "",
-      setDate: task ? task.setDate : "",
+      title: "",
+      description: "",
+      startTime: "",
+      endTime: "",
+      priority: "",
    };
 
    const [formData, handleChange] = useForm(initialState, task);

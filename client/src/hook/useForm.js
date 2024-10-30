@@ -6,11 +6,11 @@ const useForm = (initialState, task) => {
    useEffect(() => {
       if (task) {
          setFormData({
-            title: task.title,
-            description: task.description,
-            startTime: task.startTime,
-            endTime: task.endTime,
-            priority: task.priority,
+            title: task.title || "",
+            description: task.description || "",
+            startTime: task.startTime || "",
+            endTime: task.endTime || "",
+            priority: task.priority || "",
          });
       } else {
          setFormData(initialState);

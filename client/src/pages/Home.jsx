@@ -10,7 +10,7 @@ import SearchComp from "../components/SearchCon";
 import WeeklyCalendar from "../components/WeeklyCalendar";
 import WeeklyOverview from "../components/WeeklyOverview";
 import TaskList from "../components/TaskLists";
-import TaskModal from "../components/FormModal";
+import FormModal from "../components/FormModal";
 
 const Home = () => {
    const { data: tasks, error, isLoading } = useGetTasksQuery();
@@ -47,18 +47,15 @@ const Home = () => {
       await updateTaskStatus({ id: task._id, status: newStatus });
    };
 
-   const handleSubmit = async (taskData) => {
+   const handleSubmit = async (formData) => {
       if (taskToEdit) {
-         // remove setDate from taskData to avoid updating it (if it exists)
-         const { setDate, ...updateData } = taskData || {};
          await updateTask({
             id: taskToEdit._id,
-            ...updateData,
+            ...formData,
             setDate: taskToEdit.setDate,
          });
-         // await updateTask({ id: taskToEdit._id, ...taskData });
       } else {
-         await createTask({ ...taskData, setDate: selectedDate });
+         await createTask({ ...formData, setDate: new Date(selectedDate) });
       }
       setModalOpen(false);
       setTaskToEdit(null);
@@ -102,7 +99,7 @@ const Home = () => {
             </button>
          </div>
 
-         <TaskModal
+         <FormModal
             isOpen={isModalOpen}
             onClose={() => {
                setModalOpen(false);

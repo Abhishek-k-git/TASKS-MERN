@@ -13,9 +13,12 @@ const ProgressBar = ({ progress }) => (
 
 const WeeklyOverview = ({ tasks }) => {
    const currentWeekStart = startOfWeek(new Date(), { weekStartsOn: 1 });
+
    const currentWeekTasks = tasks.filter((task) => {
-      const taskDate = new Date(task.setDate);
-      return isSameWeek(taskDate, currentWeekStart, { weekStartsOn: 1 });
+      const localDate = new Date(task.setDate);
+      return isSameWeek(localDate, currentWeekStart, {
+         weekStartsOn: 1,
+      });
    });
 
    const summary = currentWeekTasks.reduce(
