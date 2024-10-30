@@ -51,7 +51,11 @@ const Home = () => {
       if (taskToEdit) {
          // remove setDate from taskData to avoid updating it (if it exists)
          const { setDate, ...updateData } = taskData || {};
-         await updateTask({ id: taskToEdit._id, ...updateData });
+         await updateTask({
+            id: taskToEdit._id,
+            ...updateData,
+            setDate: taskToEdit.setDate,
+         });
          // await updateTask({ id: taskToEdit._id, ...taskData });
       } else {
          await createTask({ ...taskData, setDate: selectedDate });

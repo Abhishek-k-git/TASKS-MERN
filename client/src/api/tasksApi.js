@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const tasksApi = createApi({
    reducerPath: "tasksApi",
    baseQuery: fetchBaseQuery({
-      baseUrl: "https://tasks-mern-app.vercel.app/api",
+      baseUrl:  "http://localhost:5000/api", // "https://tasks-mern-app.vercel.app/api",
    }),
    tagTypes: ["Task"],
    endpoints: (builder) => ({

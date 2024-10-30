@@ -32,13 +32,14 @@ const SelectField = ({ label, name, defaultOpt, value, onChange, options, requir
    </div>
 );
 
-const TaskModal = ({ isOpen, onClose, onSubmit, task }) => {
+const FormModal = ({ isOpen, onClose, onSubmit, task }) => {
    const initialState = {
-      title: "",
-      description: "",
-      startTime: "",
-      endTime: "",
-      priority: "",
+      title: task ? task.title : "",
+      description: task ? task.description : "",
+      startTime: task ? task.startTime : "",
+      endTime: task ? task.endTime : "",
+      priority: task ? task.priority : "",
+      setDate: task ? task.setDate : "",
    };
 
    const [formData, handleChange] = useForm(initialState, task);
@@ -128,4 +129,4 @@ const TaskModal = ({ isOpen, onClose, onSubmit, task }) => {
    );
 };
 
-export default TaskModal;
+export default FormModal;
