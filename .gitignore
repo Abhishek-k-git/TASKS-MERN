@@ -4,6 +4,7 @@ server/node_modules/
 
 # Ignore build artifacts in client
 client/build/
+client/dist/
 client/*.log
 
 # Ignore .env files
